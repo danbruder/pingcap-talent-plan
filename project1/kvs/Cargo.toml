@@ -5,6 +5,18 @@ authors = ["Dan Bruder danbruder@hey.com"]
 description = "A key-value store"
 edition = "2018"
 
+[lib]
+test = false
+doctest = false
+
+[[bin]]
+name = "kvs"
+test = false
+doctest = false
+
 [dev-dependencies]
 assert_cmd = "0.11.0"
 predicates = "1.0.0"
+
+[dependencies]
+clap = "2.33.3"
