@@ -3,7 +3,8 @@ use clap::{App, Arg, SubCommand};
 
 fn main() {
     let matches = App::new("kvs")
-        .version("1.0")
+        .version(env!("CARGO_PKG_VERSION"))
+        .author(env!("CARGO_PKG_AUTHORS"))
         .arg(Arg::with_name("V").short("V"))
         .subcommand(SubCommand::with_name("get").arg(Arg::with_name("KEY").required(true).index(1)))
         .subcommand(
@@ -15,7 +16,7 @@ fn main() {
         .get_matches();
 
     if matches.occurrences_of("V") > 0 {
-        println!("0.1.0");
+        println!(env!("CARGO_PKG_VERSION"));
         std::process::exit(0);
     } else if let Some(_) = matches.subcommand_matches("get") {
         eprintln!("unimplemented");
